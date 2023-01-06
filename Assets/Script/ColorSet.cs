@@ -4,10 +4,29 @@ using UnityEngine;
 
 public static class ColorSet
 {
+    public static Color purple = new Color(140f / 255, 20f / 255, 251f / 255);
+    public static Color yellow = new Color(246f / 255, 224f / 255, 13f / 255);
+    public static Color red = new Color(245f / 255, 0, 128f / 255);
+    public static Color teal = new Color(79f / 255, 226f / 255, 242f / 255);
+
     public static Color[] colors = new Color[] {
-        new Color(140, 20, 251),
-        new Color(245, 0, 128),
-        new Color(79, 226, 242),
-        new Color(246, 224, 13),
+        purple, yellow, red, teal
     };
+
+    public static Color GetColorByName(string name)
+    {
+        switch (name)
+        {
+            case "Purple":
+                return purple;
+            case "Yellow":
+                return yellow;
+            case "Red":
+                return red;
+            case "Teal":
+                return teal;
+            default:
+                return Color.white;
+        }
+    }
 }

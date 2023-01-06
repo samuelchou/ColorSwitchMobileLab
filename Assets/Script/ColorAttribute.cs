@@ -12,10 +12,6 @@ public class ColorAttribute : MonoBehaviour
         SetRandomColor();
     }
 
-    private void Update() {
-        SetRandomColor();
-    }
-
     void SetRandomColor()
     {
         Color[] colors = ColorSet.colors;
@@ -32,6 +28,7 @@ public class ColorAttribute : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Trigger with tag: " + other.tag);
-        
+        Color otherColor = ColorSet.GetColorByName(other.tag);
+        Debug.Log("Color is: " + otherColor);
     }
 }
