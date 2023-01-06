@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ColorAttribute : MonoBehaviour
 {
-    public Color[] colors;
     private SpriteRenderer spriteRenderer;
 
     void Start()
@@ -13,8 +12,13 @@ public class ColorAttribute : MonoBehaviour
         SetRandomColor();
     }
 
+    private void Update() {
+        SetRandomColor();
+    }
+
     void SetRandomColor()
     {
+        Color[] colors = ColorSet.colors;
         int random = Random.Range(0, colors.Length);
         SetColor(colors[random]);
     }
