@@ -24,4 +24,10 @@ public class ColorAttribute : MonoBehaviour
         spriteRenderer.color = color;
         Debug.Log("Color set to " + color);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Trigger with tag: " + other.tag);
+        
+    }
 }
