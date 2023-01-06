@@ -5,6 +5,7 @@ using UnityEngine;
 public class ColorAttribute : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
+    private Color currentColor = Color.white;
 
     void Start()
     {
@@ -22,13 +23,17 @@ public class ColorAttribute : MonoBehaviour
     void SetColor(Color color)
     {
         spriteRenderer.color = color;
+        currentColor = color;
         Debug.Log("Color set to " + color);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger with tag: " + other.tag);
+        // Debug.Log("Trigger with tag: " + other.tag);
         Color otherColor = ColorSet.GetColorByName(other.tag);
-        Debug.Log("Color is: " + otherColor);
+        // Debug.Log("Color is: " + otherColor);
+        if (otherColor != currentColor) {
+            Debug.Log("Not the same color!");
+        }
     }
 }
